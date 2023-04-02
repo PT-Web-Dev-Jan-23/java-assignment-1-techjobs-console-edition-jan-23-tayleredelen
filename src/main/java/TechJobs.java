@@ -28,7 +28,7 @@ public class TechJobs {
         System.out.println("Welcome to LaunchCode's TechJobs App!");
 
         // Allow the user to search until they manually quit
-        while (true) {
+        while (true) { //infinite loop allows program to continuously run until user quits (line 33)
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
 
@@ -118,8 +118,20 @@ public class TechJobs {
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) { //ArrayList of HashMap
+//        System.out.println("printJobs is not implemented yet");
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() == 0) {
+            System.out.println("No Results");
+        }
+
+        for (HashMap<String, String> job : someJobs) { //i over each job HashMap in the ArrayList and prints the fields
+            System.out.println("*****");
+            for (Map.Entry<String, String> field : job.entrySet()) { //nested loop to i over each field in the HashMap and prints the field key and value on a separate line
+                System.out.println(field.getKey() + ": " + field.getValue()); //getters for key/value pairs
+            }
+            System.out.println("*****\n"); //newline to match output
+        }
     }
+
 }

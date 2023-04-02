@@ -139,7 +139,7 @@ public class JobData {
 
         } catch (IOException e) {
             System.out.println("Failed to load job data");
-            e.printStackTrace();
+            e.printStackTrace(); // e = error syntax
         }
     }
 
