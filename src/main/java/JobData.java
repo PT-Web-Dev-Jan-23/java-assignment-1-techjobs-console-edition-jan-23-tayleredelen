@@ -91,19 +91,28 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        //method takes string of searched term (results) & returns array of HashMaps (key/value pairs) that contain searched term
         loadData(); // make sure data is loaded
         ArrayList<HashMap<String, String>> results = new ArrayList<>(); // initialize empty ArrayList to store matching jobs
-        HashSet<String> jobSet = new HashSet<>(); // initialize empty HashSet to keep track of jobs already added (avoiding dupes)
-        for (HashMap<String, String> job: allJobs) { // i over all jobs in the allJobs list
-            for (String key : job.keySet()) { // i over all the keys (column names) in the job HashMap
-                if (!jobSet.contains(job.get("ID")) && job.get(key).toLowerCase().contains(value.toLowerCase())) { // convert value & search term to lowercase to create case insensitivity
-                    results.add(job); // if both conditions met job added
-                    jobSet.add(job.get("ID")); //and it's ID is added to set of jobs that have already been added
-                    break; //break out of inner loop cuz we don't need to check remaining columns for job
+//
+//
+//        HashSet<String> jobSet = new HashSet<>(); //not working //initialize empty HashSet to keep track of jobs already added (avoiding dupes)
+        for (HashMap<String, String> job : allJobs) {
+            // i over all jobs in the allJobs list
+            for (Map.Entry<String, String> entry : job.entrySet()) {
+                // i over all the keys (column names) in the job HashMap
+                if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
+                    // convert value & search term to lowercase to create case insensitivity
+                        results.add(job);
+                        // if conditions met job added
+//                    jobSet.add(job.get("ID")); //not working//and it's ID is added to set of jobs that have already been added
+                    break;
+                    //break out of inner loop cuz we don't need to check remaining columns for job
+                    }
                 }
             }
-        }
-        return results; //returns list of matching jobs
+        return results;
+        //returns list of matching jobs
     }
 
     /**
