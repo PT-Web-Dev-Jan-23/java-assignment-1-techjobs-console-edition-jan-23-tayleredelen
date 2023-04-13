@@ -131,14 +131,14 @@ public class TechJobs {
 //            HashMap<String, String> aJob = someJobs.get(i); //not working
         for(HashMap<String, String> job : someJobs) {
             //HashMap object stores key/value pairs, this loop iterates over them
-            System.out.println("*****");
+            System.out.println("\n*****");
             //5 stars to match book output
             for (Map.Entry<String, String> searchTerm : job.entrySet()) {
                 //nested loop to i over each field in the HashMap
                 System.out.println(searchTerm.getKey() + ": " + searchTerm.getValue());
                 //prints key/value with getters
             }
-            System.out.println("*****\n");
+            System.out.println("*****");
             //newline w/5 stars to match book output
         }
     }

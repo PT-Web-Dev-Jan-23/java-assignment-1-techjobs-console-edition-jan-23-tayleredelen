@@ -44,7 +44,7 @@ public class TechJobsTest {
         String expected = getFileContents("src/test/resources/testPrintJobs.txt");
         assertEquals(expected, output);
     }
-
+//this test fails, despite the Comparison Failure saying "contents are identical"
     @Test
     public void testPrintJobsNoResults() throws IOException {
         String input = "0\n2\nChicago\nx";
@@ -52,7 +52,8 @@ public class TechJobsTest {
         String expected = getFileContents("src/test/resources/testPrintJobsNoResults.txt");
         assertEquals(expected, output);
     }
-
+//this test fails cuz of a newline between "No reults" and the list/search selection menu
+//I confirmed the newline with the asterisks is not the issue, not sure why there's another newline
     @Test
     public void testFindByValue() throws IOException {
         String input = "0\n0\nRuby\nx";
@@ -60,6 +61,7 @@ public class TechJobsTest {
         String expected = getFileContents("src/test/resources/testFindByValue.txt");
         assertEquals(expected, output);
     }
+//this test fails, despite the Comparison Failure saying "contents are identical"
 
     @Test
     public void testCaseInsensitiveSearch() throws IOException {
