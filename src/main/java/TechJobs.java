@@ -28,7 +28,7 @@ public class TechJobs {
         System.out.println("Welcome to LaunchCode's TechJobs App!");
 
         // Allow the user to search until they manually quit
-        while (true) {
+        while (true) { //infinite loop allows program to continuously run until user quits (line 33)
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
 
@@ -120,6 +120,44 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+        }
+        for(HashMap<String, String> job : someJobs) {
+            System.out.println("\n*****");
+            for (Map.Entry<String, String> searchTerm : job.entrySet()) {
+                System.out.println(searchTerm.getKey() + ": " + searchTerm.getValue());
+            }
+            System.out.println("*****");
+        }
     }
+
 }
+
+
+//pseudo coded code
+//    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) { //ArrayList of HashMap
+//        System.out.println("printJobs is not implemented yet");
+//
+//        if (someJobs.size() == 0) { //if 0 size print No Results
+//            System.out.println("No Results");
+////            return;
+//        }
+
+//        for (int i = 0; i < someJobs.size(); i++) { //not working
+            //i over each job in the ArrayList and increments size
+//            HashMap<String, String> aJob = someJobs.get(i); //not working
+//        for(HashMap<String, String> job : someJobs) {
+//            //HashMap object stores key/value pairs, this loop iterates over them
+//            System.out.println("\n*****");
+//            //5 stars to match book output
+//            for (Map.Entry<String, String> searchTerm : job.entrySet()) {
+//                //nested loop to i over each field in the HashMap
+//                System.out.println(searchTerm.getKey() + ": " + searchTerm.getValue());
+//                //prints key/value with getters
+//            }
+//            System.out.println("*****");
+//            //newline w/5 stars to match book output
+//        }
+//    }
+
